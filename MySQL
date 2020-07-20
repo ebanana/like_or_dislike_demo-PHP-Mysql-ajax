@@ -1,0 +1,22 @@
+
+新建一个test数据库
+CREATE DATABASE test;
+
+新建一个记录点赞数的表
+CREATE TABLE zanCount(
+    zanId int(50) NOT NULL AUTO_INCREMENT comment'用户点赞编号',
+    count int(50) NOT NULL comment '点赞数量',
+    PRIMARY KEY(zanId)
+);
+
+创建一个点赞数为0的赞
+INSERT INTO zanCount(zanId,count) VALUES    (1,0); 
+
+创建一个用户点赞记录表
+CREATE TABLE zanRecord(
+    zanId int(50) NOT NULL AUTO_INCREMENT comment'用户点赞编号',
+    uId INT(11) NOT NULL comment '用户编号',
+	FOREIGN KEY(zanId) REFERENCES zanCount(zanId)
+
+);
+
